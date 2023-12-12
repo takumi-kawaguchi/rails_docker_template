@@ -1,0 +1,14 @@
+1. webコンテナを指定してrails newする
+docker-compose run web rails new . --force --no-deps --database=mysql --skip-bundle
+
+2. webコンテナ内でbundle install
+docker-compose run web bundle install
+
+3. database.ymlの設定でhostをdbコンテナで指定する
+host: db
+
+4. 接続するDBを作成する
+docker-compose run web rails db:create
+
+5. コンテナを立ち上げる
+docker compose up -d
